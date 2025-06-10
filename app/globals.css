@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bloom-gradient: linear-gradient(135deg, #FFD700 0%, #FF8C00 25%, #1E90FF 75%, #00CED1 100%);
+    --bloom-glow: 0 0 30px rgba(255, 215, 0, 0.3), 0 0 60px rgba(255, 140, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+}
+
+.bloom-gradient {
+    background: var(--bloom-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bloom-glow {
+    box-shadow: var(--bloom-glow);
+}
+
+.bloom-logo-glow {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 40px rgba(255, 140, 0, 0.3));
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-swirl {
+    animation: swirl 12s ease-in-out infinite;
+}
+
+.animate-smooth-oscillate {
+    animation: smooth-pendulum 4s ease-in-out infinite;
+}
+
+.animate-oscillate {
+    animation: pendulum 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes swirl {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.05);
+    }
+}
+
+@keyframes smooth-pendulum {
+    0% {
+        transform: rotate(12deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(6deg) scale(1.02);
+    }
+
+    50% {
+        transform: rotate(-12deg) scale(1.05);
+    }
+
+    75% {
+        transform: rotate(-6deg) scale(1.02);
+    }
+
+    100% {
+        transform: rotate(12deg) scale(1);
+    }
+}
+
+@keyframes pendulum {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    25% {
+        transform: rotate(8deg);
+    }
+
+    50% {
+        transform: rotate(-15deg);
+    }
+
+    75% {
+        transform: rotate(-8deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
