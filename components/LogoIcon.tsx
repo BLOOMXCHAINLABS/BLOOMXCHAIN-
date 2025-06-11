@@ -6,13 +6,13 @@ interface LogoIconProps {
 
 export default function LogoIcon({ className = "", size = 80, smooth = true }: LogoIconProps) {
   return (
-    <div className={`inline-block ${className}`}>
+    <div className={`flex items-center justify-center ${className}`}>
       <svg
         width={size}
         height={size}
         viewBox="0 0 1024 1024"
         xmlns="http://www.w3.org/2000/svg"
-        className={smooth ? "animate-smooth-oscillate" : "animate-oscillate"}
+        className={`${smooth ? "animate-smooth-oscillate" : "animate-oscillate"} max-w-full max-h-full`}
       >
         <defs>
           {/* Diagonal gradients from top-left to bottom-right */}
